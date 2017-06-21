@@ -17,6 +17,12 @@ Utilities for working with Phar archives in JavaScipt
 var phar = new PharUtils.Phar();
 phar.loadFromContents(phar_contents);
 ```
+ - Creating new Phar archive
+``` js
+var phar = new PharUtils.Phar();
+phar.setStub('<?php echo "Works!" . PHP_EOL; __HALT_COMPILER();');
+phar.setSignatureType(PharUtils.SIGNATURE_SHA256);
+```
  - Adding file to Phar archive
 ``` js
 // Phar object
