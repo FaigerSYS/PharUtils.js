@@ -15,7 +15,7 @@ Utilities for working with Phar archives in JavaScipt
 ``` js
 // Phar contents as <string> or <Uint8Array>
 var phar = new PharUtils.Phar();
-phar.loadFromContents(phar_contents);
+phar.loadPharData(phar_contents);
 ```
  - Creating new Phar archive
 ``` js
@@ -27,19 +27,19 @@ phar.setSignatureType(PharUtils.SIGNATURE_SHA256);
 ``` js
 // Phar object
 var new_file = new PharUtils.PharFile("myName.txt", "some_contents");
-phar.getFiles().push(new_file);
+phar.addFile(new_file);
 ```
  - Saving Phar archive to contents
 ``` js
 // Phar object
-var phar_contents = phar.saveAsContents();
+var phar_contents = phar.savePharData();
 ```
  - Converting to Zip
 ``` js
 // Phar object
-var zip_contents = PharUtils.PharZipConverter.toZip(phar);
+var zip = PharUtils.PharZipConverter.toZip(phar);
 ```
-...and more! Just look at the code.
+...and more! Just look at the source.
 ***
 
 ## License
